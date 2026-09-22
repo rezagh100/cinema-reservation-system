@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Showtime
+from .serializers import ShowtimeSerializer
 
-# Create your views here.
+
+class ShowtimeViewSet(ModelViewSet):
+    queryset = Showtime.objects.all()
+    serializer_class = ShowtimeSerializer
