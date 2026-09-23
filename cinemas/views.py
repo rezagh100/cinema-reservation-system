@@ -1,10 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Cinema, Hall, Seat
 from .serializers import CinemaSerializer, HallSerializer, SeatSerializer
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, DjangoModelPermissions
 
 class CinemaViewSet(ModelViewSet):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [DjangoModelPermissions]
     queryset = Cinema.objects.all()
     serializer_class = CinemaSerializer
     
