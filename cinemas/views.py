@@ -1,9 +1,10 @@
 from rest_framework.viewsets import ModelViewSet
 from .models import Cinema, Hall, Seat
 from .serializers import CinemaSerializer, HallSerializer, SeatSerializer
-
+from rest_framework.permissions import IsAuthenticated
 
 class CinemaViewSet(ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Cinema.objects.all()
     serializer_class = CinemaSerializer
     

@@ -1,12 +1,12 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.conf import settings
 from cinemas.models import Seat
 from showtimes.models import Showtime
 
 
 class Reservation(models.Model):
     user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='reservations')
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='reservations')
     showtime = models.ForeignKey(
         Showtime, on_delete=models.CASCADE, related_name='reservations')
     seat = models.ForeignKey(
